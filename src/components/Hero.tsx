@@ -20,7 +20,7 @@ export default function Hero() {
             Realizamos el cableado y estructurado de la red de su empresa, cumpliendo con los estándares de homologación de la industria.
           </p>
           <a 
-            href="#contact"
+            href="https://wa.me/+541155990107"
             className="bg-[#20B24D] text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-[#9C4CA1] transition-colors"
           >
             Contáctanos
