@@ -1,10 +1,10 @@
 export default function Clients() {
   const clients = [
-    { name: "Farmacity", logo: "../img/farm.png" },
-    { name: "Ford", logo: "../img/ford.png"  },
-    { name: "Ball", logo: "../img/ball.png"  },
-    { name: "Zettalan", logo: "../img/zeta.png" },
-    { name: "Paía", logo: "../img/paia.png"  },
+    { name: "Farmacity", logo: "/img/farm.png" },
+    { name: "Ford", logo: "/img/ford.png"  },
+    { name: "Ball", logo: "/img/ball.png"  },
+    { name: "Zettalan", logo: "/img/zeta.png" },
+    { name: "Paía", logo: "/img/paia.png"  },
   ];
 
   return (

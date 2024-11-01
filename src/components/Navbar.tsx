@@ -10,7 +10,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-full">
           <div className="flex items-center">
             {/* <span className="text-2xl font-bold text-[#9C4CA1]">WORLD IT</span> */}
-            <img src="../img/wit.png"  alt="logo" />
+            <img src="/img/wit.png"  alt="logo" />
           </div>
           
           <div className="hidden md:flex items-center space-x-8">
