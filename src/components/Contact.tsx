@@ -1,8 +1,8 @@
-import { Mail, Phone, MapPin, Linkedin, Instagram, Facebook } from 'lucide-react';
+import { Mail, Phone, Linkedin, Instagram, Facebook } from 'lucide-react';
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-20 bg-gray-50">
+    <section id="contact" className=" bg-gray-50">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-800">
           Contacto
@@ -57,6 +57,23 @@ export default function Contact() {
           </div>
         </div>
       </div>
+
+      {/* Footer con información de contacto */}
+      <footer className="bg-black text-white py-6 mt-0">
+        <div className="container mx-auto px-4 flex flex-col items-center">
+          <div className="flex items-center space-x-4 mb-2">
+            <Mail size={20} className="mr-1" />
+            <span>info@worldit.com.ar</span>
+          </div>
+          <div className="flex items-center space-x-4 mb-2">
+            <Phone size={20} className="mr-1" />
+            <span>+541155990107</span>
+          </div>
+          <div className="text-center mt-2">
+            <span>Copyright © 2024 WORLD IT</span>
+          </div>
+        </div>
+      </footer>
     </section>
   );
 }
