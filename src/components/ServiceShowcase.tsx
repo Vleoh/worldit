@@ -6,15 +6,15 @@ export default function ServiceShowcase() {
 
   const images = [
     {
-      url: "../img/img3.png",
+      url: "/img/img4.png",
       caption: "Centros de datos modernos"
     },
     {
-      url:"../img/img2.png",
+      url:"/img/img2.png",
       caption: "Instalación de redes"
     },
     {
-      url: "../img/img1.png",
+      url: "/img/img1.png",
       caption: "Cableado estructurado"
     },
   ];
