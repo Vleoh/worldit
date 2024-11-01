@@ -47,10 +47,10 @@ export default function Contact() {
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-[#9C4CA1]">
                 <Linkedin size={24} />
               </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-[#9C4CA1]">
+              <a href="https://www.instagram.com/world.it_?igsh=MXdlbWI2MzlzaGJnMQ==" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-[#9C4CA1]">
                 <Instagram size={24} />
               </a>
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-[#9C4CA1]">
+              <a href="https://www.facebook.com/p/World-it-100083622613322/?locale=es_LA" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-[#9C4CA1]">
                 <Facebook size={24} />
               </a>
             </div>
