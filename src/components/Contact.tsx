@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Mail, Phone, Linkedin, Instagram, Facebook } from 'lucide-react';
+import { Mail, Phone, Linkedin, Instagram, Facebook, MessageCircle, Shield } from 'lucide-react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -18,7 +18,6 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      // const response = await fetch('https://tu-backend-url.vercel.app/api/enviar-contacto', {
       const response = await fetch('https://formspree.io/f/xrbgpljq', {
         method: 'POST',
         headers: {
@@ -27,7 +26,7 @@ export default function Contact() {
         body: JSON.stringify(formData),
       });
       if (response.ok) {
-        toast.success('Mensaje enviado con éxito');
+        toast.success('Mensaje enviado con exito');
         setFormData({ name: '', email: '', message: '' });
       } else {
         toast.error('Error al enviar el mensaje');
@@ -39,14 +38,61 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="bg-gray-50">
+    <section id="contact" className="relative bg-gray-950 text-white overflow-hidden">
       <ToastContainer />
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-800">
-          Contacto
-        </h2>
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-white rounded-lg shadow-lg p-8">
+      <div className="absolute inset-0 opacity-40" style={{ backgroundImage: 'radial-gradient(circle at bottom right, #20B24D20, transparent 55%)' }} />
+      <div className="relative container mx-auto px-4 py-24">
+        <div className="max-w-2xl text-center mx-auto mb-16">
+          <span className="text-xs uppercase tracking-[0.3em] text-[#20B24D]">Hablemos</span>
+          <h2 className="text-3xl md:text-4xl font-bold mt-6">
+            Agenda una demo personalizada con nuestros especialistas
+          </h2>
+          <p className="text-white/70 mt-4">
+            Cuentanos que necesitas proteger y armamos un roadmap de seguridad inteligente con indicadores de ROI claros para tu negocio.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
+          <div className="bg-white/5 backdrop-blur border border-white/10 rounded-3xl p-8 lg:col-span-1">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="h-12 w-12 rounded-2xl bg-[#20B24D]/10 flex items-center justify-center text-[#20B24D]">
+                <Shield className="w-6 h-6" />
+              </div>
+              <div>
+                <p className="text-white/60 text-sm">Tiempo promedio de respuesta</p>
+                <p className="text-lg font-semibold">Menos de 30 min</p>
+              </div>
+            </div>
+            <p className="text-white/70 mb-6">
+              Preferimos conversaciones con foco en resultados. Cada proyecto comienza con un diagnostico guiado y un plan de accion claro.
+            </p>
+            <div className="space-y-5">
+              <a href="mailto:info@worldit.com.ar" className="flex items-center gap-3 text-white/80 hover:text-white transition-colors">
+                <Mail size={20} />
+                info@worldit.com.ar
+              </a>
+              <a href="https://wa.me/+541155990107" className="flex items-center gap-3 text-white/80 hover:text-white transition-colors">
+                <MessageCircle size={20} />
+                WhatsApp directo
+              </a>
+              <div className="flex items-center gap-3 text-white/80">
+                <Phone size={20} />
+                <span>+54 11 5599 0107</span>
+              </div>
+            </div>
+            <div className="flex gap-4 mt-8">
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-white">
+                <Linkedin size={24} />
+              </a>
+              <a href="https://www.instagram.com/world.it_?igsh=MXdlbWI2MzlzaGJnMQ==" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-white">
+                <Instagram size={24} />
+              </a>
+              <a href="https://www.facebook.com/p/World-it-100083622613322/?locale=es_LA" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-white">
+                <Facebook size={24} />
+              </a>
+            </div>
+          </div>
+
+          <div className="lg:col-span-2 bg-white rounded-3xl shadow-2xl p-10">
             <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
@@ -56,7 +102,8 @@ export default function Contact() {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#9C4CA1] focus:ring focus:ring-[#9C4CA1] focus:ring-opacity-50"
+                    className="mt-2 block w-full rounded-xl border border-gray-200 px-4 py-3 shadow-sm focus:border-[#5325c7] focus:ring focus:ring-[#5325c7]/20"
+                    placeholder="Ej: Sofia Gomez"
                     required
                   />
                 </div>
@@ -67,7 +114,8 @@ export default function Contact() {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#9C4CA1] focus:ring focus:ring-[#9C4CA1] focus:ring-opacity-50"
+                    className="mt-2 block w-full rounded-xl border border-gray-200 px-4 py-3 shadow-sm focus:border-[#5325c7] focus:ring focus:ring-[#5325c7]/20"
+                    placeholder="empresa@correo.com"
                     required
                   />
                 </div>
@@ -78,51 +126,28 @@ export default function Contact() {
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  rows={4}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#9C4CA1] focus:ring focus:ring-[#9C4CA1] focus:ring-opacity-50"
+                  rows={5}
+                  className="mt-2 block w-full rounded-xl border border-gray-200 px-4 py-3 shadow-sm focus:border-[#5325c7] focus:ring focus:ring-[#5325c7]/20"
+                  placeholder="Cuentanos sobre tus ubicaciones, horarios y nivel de riesgo."
                   required
                 ></textarea>
               </div>
               <div>
                 <button
                   type="submit"
-                  className="w-full bg-[#9C4CA1] text-white px-6 py-3 rounded-md hover:bg-[#20B24D] transition-colors"
+                  className="w-full bg-gradient-to-r from-[#5325c7] to-[#20B24D] text-white px-6 py-4 rounded-xl text-base font-semibold shadow-lg hover:shadow-xl transition-all"
                 >
                   Enviar mensaje
                 </button>
               </div>
             </form>
-
-            <div className="mt-12 flex flex-wrap justify-center gap-8">
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-[#9C4CA1]">
-                <Linkedin size={24} />
-              </a>
-              <a href="https://www.instagram.com/world.it_?igsh=MXdlbWI2MzlzaGJnMQ==" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-[#9C4CA1]">
-                <Instagram size={24} />
-              </a>
-              <a href="https://www.facebook.com/p/World-it-100083622613322/?locale=es_LA" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-[#9C4CA1]">
-                <Facebook size={24} />
-              </a>
-            </div>
           </div>
         </div>
+
+        <footer className="mt-20 border-t border-white/10 pt-8 text-center text-white/60 text-sm">
+          <p>Copyright 2024 WORLD IT. Seguridad inteligente para empresas que no se detienen.</p>
+        </footer>
       </div>
-
-      <footer className="bg-black text-white py-6 mt-0">
-        <div className="container mx-auto px-4 flex flex-col items-center">
-          <div className="flex items-center space-x-4 mb-2">
-            <Mail size={20} className="mr-1" />
-            <span>info@worldit.com.ar</span>
-          </div>
-          <div className="flex items-center space-x-4 mb-2">
-            <Phone size={20} className="mr-1" />
-            <span>+541155990107</span>
-          </div>
-          <div className="text-center mt-2">
-            <span>Copyright © 2024 WORLD IT</span>
-          </div>
-        </div>
-      </footer>
     </section>
   );
 }
