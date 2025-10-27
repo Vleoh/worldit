@@ -24,8 +24,9 @@ export default function Hero() {
       <div
         className="absolute inset-0"
         style={{
+          // Local image with a dark violet overlay (more color than photo)
           backgroundImage:
-            'linear-gradient(120deg, rgba(19, 16, 43, 0.85), rgba(2, 108, 87, 0.75)), url(\'https://images.unsplash.com/photo-1511108690759-009324a90311?auto=format&fit=crop&w=2100&q=80\')',
+            "linear-gradient(120deg, rgba(20,12,35,0.90), rgba(10,6,20,0.94)), url('/img/img4.png')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
