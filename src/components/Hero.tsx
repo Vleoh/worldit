@@ -12,7 +12,7 @@ export default function Hero() {
     <section id="top" className="relative flex min-h-screen items-center overflow-hidden px-4 pb-20 pt-36 sm:px-6 lg:px-8">
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <img
-          src="https://worldit.com.ar/wp-content/uploads/2022/07/data.jpg"
+          src="/img/hero.png"
           alt="Instalaciones tecnologicas World IT"
           className="h-full w-full object-cover opacity-100"
         />
@@ -20,7 +20,7 @@ export default function Hero() {
       </div>
 
       <div className="mx-auto grid w-full max-w-7xl items-center gap-10 lg:grid-cols-[1.08fr_0.92fr]">
-        <div>
+        <div className="max-w-3xl rounded-[2rem] border border-white/10 bg-black/46 p-6 shadow-[0_24px_70px_rgba(0,0,0,0.38)] backdrop-blur-md sm:p-8 lg:p-10">
           <span className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-black/40 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/90 backdrop-blur-xl">
             <RadioTower className="h-4 w-4 text-[var(--green)]" />
             Bienvenido a la innovacion en servicios informaticos
