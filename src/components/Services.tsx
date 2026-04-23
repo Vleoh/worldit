@@ -1,89 +1,82 @@
-﻿import { Activity, Camera, Cable, Database, Radio, Router } from 'lucide-react';
-
-const services = [
+const serviceCards = [
   {
-    icon: <Cable className="h-6 w-6 text-[var(--violet)]" />,
-    title: 'Instalaciones de fibra optica',
+    title: 'Fibra optica de alta densidad',
     description:
-      'Realizamos instalaciones de equipos de red, tanto routers, switches y access point, como tambien cableado estructurado categoria 5e, 6, 6a y fibra optica.',
-    image: 'https://worldit.com.ar/wp-content/uploads/2022/07/Fusionadora-world-it.png',
+      'Redes de backbone disenadas para la maxima transferencia de paquetes sin perdidas, orientadas a operaciones criticas.',
+    image: '/img/img2.png',
+    label: 'Infraestructura core',
+    accent: 'border-[var(--green)]',
+    linkColor: 'text-[var(--green)]',
   },
   {
-    icon: <Radio className="h-6 w-6 text-[var(--green)]" />,
-    title: 'Instalaciones de AP outdoor e indoor',
-    description:
-      'Implementamos puntos de acceso para espacios internos y exteriores, mejorando cobertura, estabilidad y rendimiento en zonas de alta demanda.',
-    image: 'https://worldit.com.ar/wp-content/uploads/2022/07/WhatsApp-Image-2022-07-21-at-1.41.png',
+    title: 'CCTV IA-Powered',
+    description: 'Vigilancia inteligente con analisis predictivo y reconocimiento de patrones en tiempo real.',
+    label: 'Seguridad automatizada',
+    accent: 'border-[var(--violet)]',
+    linkColor: 'text-[var(--violet)]',
   },
   {
-    icon: <Database className="h-6 w-6 text-[var(--violet)]" />,
-    title: 'Centro de Procesamiento de Datos',
-    description:
-      'Adaptamos y convertimos tu sala en un cuarto de cableado acorde a normas vigentes. Un Data Center es el nucleo de operacion de tu empresa.',
-    image: 'https://worldit.com.ar/wp-content/uploads/2022/07/data.jpg',
-  },
-  {
-    icon: <Activity className="h-6 w-6 text-[var(--green)]" />,
-    title: 'Mantenimiento de redes',
-    description:
-      'Ofrecemos servicio de mantenimiento de redes para garantizar funcionamiento optimo y continuidad operativa con monitoreo y soporte tecnico.',
-    image: 'https://worldit.com.ar/wp-content/uploads/2022/07/FIBRA-2.png',
-  },
-  {
-    icon: <Router className="h-6 w-6 text-[var(--violet)]" />,
-    title: 'Equipamiento de salas y oficinas',
-    description:
-      'Instalamos la infraestructura necesaria en salas y oficinas para el uso adecuado y eficaz de los equipos informaticos.',
-    image: 'https://worldit.com.ar/wp-content/uploads/2022/07/CABLEADO-INT.png',
-  },
-  {
-    icon: <Camera className="h-6 w-6 text-[var(--green)]" />,
-    title: 'Sistemas de video vigilancia',
-    description:
-      'Instalacion, soporte tecnico y mantenimiento de videovigilancia: camaras analogicas con DVR y camaras IP con NVR para seguridad y control.',
-    image: 'https://worldit.com.ar/wp-content/uploads/2022/07/WhatsApp-Image-2022-07-12-at-5.47.35-PM-3.jpeg',
+    title: 'Cableado estructurado',
+    description: 'Arquitectura Cat6A y Cat7 organizada con protocolos de flujo de aire y gestion termica.',
+    label: 'Capa fisica',
+    accent: 'border-[var(--accent-orange)]',
+    linkColor: 'text-[var(--accent-orange)]',
   },
 ];
 
 export default function Services() {
   return (
-    <section id="services" className="relative px-4 py-24 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-7xl">
-        <div className="mb-12 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--green)]">Servicios World IT</p>
-            <h2 className="mt-3 max-w-3xl font-heading text-3xl font-semibold text-[var(--text-primary)] sm:text-4xl lg:text-5xl">
-              Soluciones integrales de telecomunicaciones para empresas
-            </h2>
+    <section id="services" className="border-b border-white/8 bg-[var(--page-bg)] px-4 py-20 sm:px-6 lg:px-8">
+      <div className="section-shell">
+        <div className="grid gap-4 lg:grid-cols-[1.35fr_0.9fr]">
+          <article className="tech-panel relative overflow-hidden rounded-sm lg:row-span-2">
+            <img src="/img/img3.png" alt="Fibra optica de alta densidad" className="h-full w-full object-cover opacity-36" />
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,23,0.2),rgba(2,6,23,0.82))]"></div>
+            <div className="absolute bottom-0 left-0 right-0 border-l-2 border-[var(--green)] p-7 sm:p-9">
+              <p className="text-[0.62rem] font-semibold uppercase tracking-[0.22em] text-[var(--green)]">
+                {serviceCards[0].label}
+              </p>
+              <h2 className="mt-5 max-w-md font-heading text-5xl uppercase leading-[0.9] text-white">
+                {serviceCards[0].title}
+              </h2>
+              <p className="mt-4 max-w-lg text-sm leading-7 text-white/66">{serviceCards[0].description}</p>
+              <a
+                href="#contact"
+                className="mt-7 inline-flex rounded-sm border border-white/12 bg-white/6 px-4 py-3 text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-white/82"
+              >
+                Ver especificacion
+              </a>
+            </div>
+          </article>
+
+          <div className="grid gap-4">
+            {serviceCards.slice(1).map((card) => (
+              <article key={card.title} className={`tech-panel rounded-sm border-l-2 ${card.accent} px-6 py-7`}>
+                <p className="text-[0.62rem] font-semibold uppercase tracking-[0.22em] text-white/42">{card.label}</p>
+                <h3 className="mt-4 font-heading text-4xl uppercase leading-[0.9] text-white">{card.title}</h3>
+                <p className="mt-4 text-sm leading-7 text-white/62">{card.description}</p>
+                <a href="#contact" className={`mt-6 inline-flex text-[0.62rem] font-bold uppercase tracking-[0.2em] ${card.linkColor}`}>
+                  Solicitar base
+                </a>
+              </article>
+            ))}
           </div>
-          <p className="max-w-md text-sm leading-relaxed text-[var(--text-muted)]">
-            Integramos infraestructura fisica, equipamiento y mantenimiento continuo para sostener operaciones estables,
-            escalables y alineadas a estandares tecnicos.
-          </p>
-        </div>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {services.map((service) => (
-            <article
-              key={service.title}
-              className="group overflow-hidden rounded-3xl border border-[var(--border-color)] bg-[var(--surface-2)] shadow-[var(--shadow-soft)] transition-all duration-300 hover:-translate-y-1 hover:border-[var(--green)]/40"
-            >
-              <div className="relative h-52 overflow-hidden">
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,10,20,0.08)_35%,rgba(6,10,20,0.72)_100%)]"></div>
-              </div>
-
-              <div className="p-6">
-                <div className="mb-4 inline-flex rounded-xl border border-[var(--border-color)] bg-[var(--surface-3)] p-3">{service.icon}</div>
-                <h3 className="font-heading text-2xl text-[var(--text-primary)]">{service.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-[var(--text-secondary)]">{service.description}</p>
-              </div>
-            </article>
-          ))}
+          <article className="tech-panel grid gap-4 rounded-sm border-l-2 border-[var(--green)] px-6 py-7 md:grid-cols-[1fr_auto_auto] md:items-center">
+            <div>
+              <h3 className="font-heading text-4xl uppercase leading-[0.92] text-white">Gestion critica de IDFs &amp; MDFs</h3>
+              <p className="mt-3 max-w-2xl text-sm leading-7 text-white/62">
+                Estandarizacion y remediacion de centros de datos. Corregimos el caos de cables en una infraestructura
+                de precision logica y fisica.
+              </p>
+            </div>
+            <span className="rounded-sm border border-white/10 bg-white/5 px-4 py-3 text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-white/76">
+              Feeding total
+            </span>
+            <span className="rounded-sm border border-white/10 bg-white/5 px-4 py-3 text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-white/76">
+              Optimizacion
+            </span>
+          </article>
         </div>
       </div>
     </section>

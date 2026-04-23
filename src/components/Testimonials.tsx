@@ -1,58 +1,65 @@
-﻿import { Building2, CheckCircle2, Network, Shield } from 'lucide-react';
-
-const pillars = [
+const projects = [
   {
-    icon: <Network className="h-5 w-5 text-[var(--green)]" />,
-    title: 'Telecomunicaciones eficientes',
-    text: 'Disenamos e integramos redes para que cada sede tenga conectividad estable y previsible.',
+    title: 'Red troncal de baja latencia para nexus financiero',
+    description:
+      'Implementacion de 2.5km de fibra OM4 y reestructuracion de data center core con cero ventanas de alta velocidad.',
+    image: '/img/img4.png',
+    tags: ['Backbone IP', 'Baja latencia'],
+    color: 'text-[var(--green)]',
   },
   {
-    icon: <Shield className="h-5 w-5 text-[var(--violet)]" />,
-    title: 'Estandares de homologacion',
-    text: 'Cada instalacion se ejecuta bajo criterios tecnicos de industria y buenas practicas de ordenamiento.',
-  },
-  {
-    icon: <Building2 className="h-5 w-5 text-[var(--green)]" />,
-    title: 'Foco en empresas',
-    text: 'World IT nace para resolver necesidades reales de empresas que dependen de su red para operar.',
+    title: 'Ecosistema de seguridad IA para global port',
+    description:
+      'Red de 400 camaras 4K con procesamiento de borde y almacenamiento redundante de 2PB para control logistico total.',
+    image: '/img/img1.png',
+    tags: ['Logistica core', 'Edge surveillance'],
+    color: 'text-[var(--violet)]',
   },
 ];
 
 export default function Testimonials() {
   return (
-    <section id="about" className="relative px-4 py-24 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-7xl">
-        <div className="mx-auto max-w-4xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--violet)]">Nosotros</p>
-          <h2 className="mt-3 font-heading text-3xl font-semibold text-[var(--text-primary)] sm:text-4xl">
-            WORLD IT conecta tecnologia, negocio y continuidad
+    <section id="projects" className="border-b border-white/8 bg-[var(--page-bg)] px-4 py-24 sm:px-6 lg:px-8">
+      <div className="section-shell">
+        <div className="text-center">
+          <p className="eyebrow justify-center">Casos de exito: kinetic projects</p>
+          <h2 className="mt-5 font-heading text-5xl uppercase leading-[0.9] text-white sm:text-6xl">
+            Operaciones que ya escalan
           </h2>
+        </div>
 
-          <p className="mt-5 text-sm leading-relaxed text-[var(--text-secondary)] sm:text-base">
-            "WORLD IT nace de la necesidad que presentan las empresas para poder estructurar y conectar las
-            telecomunicaciones de manera eficiente".
-          </p>
+        <div className="mt-16 space-y-8">
+          {projects.map((project, index) => (
+            <article
+              key={project.title}
+              className={`grid gap-6 lg:grid-cols-2 lg:items-center ${
+                index % 2 === 1 ? 'lg:[&>*:first-child]:order-2 lg:[&>*:last-child]:order-1' : ''
+              }`}
+            >
+              <div className="tech-panel overflow-hidden rounded-sm">
+                <img src={project.image} alt={project.title} className="h-[20rem] w-full object-cover opacity-58 saturate-0" />
+              </div>
 
-          <div className="mt-8 grid gap-4">
-            {pillars.map((pillar) => (
-              <article
-                key={pillar.title}
-                className="rounded-2xl border border-[var(--border-color)] bg-[var(--surface-2)] p-5 shadow-[var(--shadow-soft)]"
-              >
-                <div className="mb-2 inline-flex rounded-lg border border-[var(--border-color)] bg-[var(--surface-3)] p-2">{pillar.icon}</div>
-                <h3 className="font-semibold text-[var(--text-primary)]">{pillar.title}</h3>
-                <p className="mt-1 text-sm text-[var(--text-secondary)]">{pillar.text}</p>
-              </article>
-            ))}
-          </div>
+              <div className="px-2">
+                <div className="flex flex-wrap gap-2">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-sm border border-white/10 bg-white/5 px-3 py-1 text-[0.58rem] font-semibold uppercase tracking-[0.18em] text-white/72"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
 
-          <div className="mt-6 rounded-2xl border border-[var(--green)]/35 bg-[var(--green)]/10 p-4">
-            <p className="flex items-start gap-2 text-sm text-[var(--text-secondary)]">
-              <CheckCircle2 className="mt-0.5 h-4 w-4 text-[var(--green)]" />
-              Tambien proveemos instalacion, soporte tecnico y mantenimiento de sistemas de video vigilancia con DVR y
-              NVR.
-            </p>
-          </div>
+                <h3 className="mt-6 font-heading text-5xl uppercase leading-[0.9] text-white">{project.title}</h3>
+                <p className="mt-5 max-w-xl text-sm leading-7 text-white/62">{project.description}</p>
+                <a href="#contact" className={`mt-6 inline-flex text-[0.66rem] font-bold uppercase tracking-[0.2em] ${project.color}`}>
+                  Tecnologia lista
+                </a>
+              </div>
+            </article>
+          ))}
         </div>
       </div>
     </section>

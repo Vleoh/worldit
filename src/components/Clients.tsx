@@ -1,57 +1,60 @@
-﻿const clients = [
-  { name: 'Farmacity', logo: '/img/farm.png' },
-  { name: 'Ford', logo: '/img/ford.png' },
-  { name: 'Ball', logo: '/img/ball.png' },
-  { name: 'Zettalan', logo: '/img/zeta.png' },
-  { name: 'Paia', logo: '/img/paia.png' },
+import { Circle } from 'lucide-react';
+
+const metrics = [
+  {
+    label: 'Latencia',
+    value: '1.4ms',
+    detail: 'Monitoreo en tiempo real sobre la red troncal.',
+    color: 'bg-[var(--green)]',
+  },
+  {
+    label: 'Throughput',
+    value: '40Gbps',
+    detail: 'Backbone preparado para trafico corporativo critico.',
+    color: 'bg-[var(--violet)]',
+  },
+  {
+    label: 'Uptime IA',
+    value: '99.9%',
+    detail: 'Alertas, soporte y continuidad sin ventanas ciegas.',
+    color: 'bg-[var(--accent-orange)]',
+  },
+  {
+    label: 'Nodos activos',
+    value: '1,204',
+    detail: 'Cobertura operativa sobre entornos indoor y outdoor.',
+    color: 'bg-[var(--green)]',
+  },
 ];
 
 export default function Clients() {
-  const loopedClients = [...clients, ...clients];
-
   return (
-    <section id="clients" className="relative px-4 py-24 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-7xl">
-        <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+    <section id="metrics" className="border-b border-white/8 bg-[var(--page-bg)] px-4 py-16 sm:px-6 lg:px-8">
+      <div className="section-shell">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--green)]">Clientes que confian</p>
-            <h2 className="mt-3 font-heading text-3xl font-semibold text-[var(--text-primary)] sm:text-4xl">
-              Empresas que confian en nuestra infraestructura
+            <p className="eyebrow">Metricas de rendimiento global</p>
+            <h2 className="mt-5 max-w-xl font-heading text-4xl uppercase leading-[0.92] text-white sm:text-5xl">
+              Monitoreo en tiempo real de la red troncal WORLD IT
             </h2>
           </div>
-          <p className="max-w-md text-sm leading-relaxed text-[var(--text-muted)]">
-            Colaboramos con equipos de IT, facilities y operaciones para desplegar conectividad eficiente, segura y
-            preparada para crecer.
-          </p>
-        </div>
 
-        <div className="marquee-mask rounded-3xl border border-[var(--border-color)] bg-[var(--surface-2)] py-8 shadow-[var(--shadow-soft)]">
-          <div className="animate-marquee flex w-max items-center gap-10 px-6">
-            {loopedClients.map((client, index) => (
-              <div
-                key={`${client.name}-${index}`}
-                className="flex h-20 w-44 items-center justify-center rounded-2xl border border-[var(--border-color)] bg-[var(--surface-3)] px-6"
-              >
-                <img
-                  src={client.logo}
-                  alt={client.name}
-                  className="max-h-10 w-auto object-contain opacity-80 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
-                />
-              </div>
-            ))}
+          <div className="inline-flex items-center gap-2 text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-white/62">
+            <Circle className="h-3 w-3 fill-[var(--violet)] text-[var(--violet)]" />
+            Live feed terminal
           </div>
         </div>
 
-        <div className="mt-8 grid gap-4 sm:grid-cols-3">
-          {[
-            { value: '10+', label: 'Anios trabajando en telecomunicaciones' },
-            { value: '24/7', label: 'Cobertura de soporte tecnico planificado' },
-            { value: '5e-6a', label: 'Categorias de cableado estructurado' },
-          ].map((item) => (
-            <div key={item.label} className="rounded-2xl border border-[var(--border-color)] bg-[var(--surface-2)] p-5 text-center shadow-[var(--shadow-soft)]">
-              <p className="font-heading text-3xl text-[var(--text-primary)]">{item.value}</p>
-              <p className="mt-2 text-xs uppercase tracking-[0.14em] text-[var(--text-muted)]">{item.label}</p>
-            </div>
+        <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          {metrics.map((metric) => (
+            <article key={metric.label} className="scan-line tech-panel rounded-sm px-5 py-6">
+              <p className="text-[0.6rem] font-semibold uppercase tracking-[0.22em] text-white/42">{metric.label}</p>
+              <p className="mt-5 font-heading text-5xl uppercase leading-none text-white">{metric.value}</p>
+              <p className="mt-4 text-sm leading-7 text-white/60">{metric.detail}</p>
+              <div className="metric-line">
+                <span className={`${metric.color} w-2/3`}></span>
+              </div>
+            </article>
           ))}
         </div>
       </div>

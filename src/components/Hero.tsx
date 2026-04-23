@@ -1,101 +1,134 @@
-﻿import { ArrowRight, Cable, RadioTower, ShieldCheck, Wifi } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
-const serviceBullets = [
-  'Instalaciones de AP outdoor e indoor',
-  'Cableado estructurado categoria 5e, 6 y 6a',
-  'Backbone de fibra optica y equipos de red',
-  'Soporte tecnico y mantenimiento continuo',
+const metaItems = [
+  'Latencia global: 1.4ms',
+  '40Gbps core',
+  'Protocolo operacional',
+];
+
+const infrastructureLayers = [
+  {
+    label: 'Fibra optica',
+    accentClassName: 'bg-[var(--green)]',
+    barClassName: 'bg-[var(--green)] w-4/5',
+  },
+  {
+    label: 'Cableado estructurado',
+    accentClassName: 'bg-[var(--violet)]',
+    barClassName: 'bg-[var(--violet)] w-3/5',
+  },
+  {
+    label: 'WiFi corporativo',
+    accentClassName: 'bg-[var(--accent-orange)]',
+    barClassName: 'bg-[var(--accent-orange)] w-2/3',
+  },
+  {
+    label: 'Racks e infraestructura',
+    accentClassName: 'bg-[var(--green)]',
+    barClassName: 'bg-white/70 w-5/6',
+  },
 ];
 
 export default function Hero() {
   return (
-    <section id="top" className="relative flex min-h-screen items-center overflow-hidden px-4 pb-20 pt-36 sm:px-6 lg:px-8">
-      <div className="absolute inset-0 -z-10 overflow-hidden">
+    <section
+      id="top"
+      className="hero-noise relative isolate overflow-hidden border-b border-white/8 bg-[var(--page-bg)] px-4 pb-14 pt-28 sm:px-6 lg:px-8 lg:pb-20 lg:pt-32"
+    >
+      <div className="absolute inset-0 -z-20">
         <img
           src="/img/hero.png"
-          alt="Instalaciones tecnologicas World IT"
-          className="h-full w-full object-cover opacity-100"
+          alt="Infraestructura de red"
+          className="h-full w-full object-cover opacity-30 saturate-0"
         />
-        <div className="absolute inset-0 bg-black/62"></div>
       </div>
 
-      <div className="mx-auto grid w-full max-w-7xl items-center gap-10 lg:grid-cols-[1.08fr_0.92fr]">
-        <div className="max-w-3xl rounded-[2rem] border border-white/10 bg-black/46 p-6 shadow-[0_24px_70px_rgba(0,0,0,0.38)] backdrop-blur-md sm:p-8 lg:p-10">
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-black/40 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/90 backdrop-blur-xl">
-            <RadioTower className="h-4 w-4 text-[var(--green)]" />
-            Bienvenido a la innovacion en servicios informaticos
-          </span>
+      <div className="absolute inset-0 -z-10 tech-grid opacity-40"></div>
 
-          <h1 className="mt-8 max-w-3xl font-heading text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl">
-            Instalaciones Tecnologicas
-            <span className="block bg-[linear-gradient(90deg,var(--violet),#c892cf,var(--green))] bg-clip-text text-transparent">
-              WORLD IT
-            </span>
-          </h1>
+      <div className="section-shell relative">
+        <div className="grid gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+          <div className="max-w-3xl">
+            <h1 className="font-heading text-[4rem] uppercase leading-[0.84] text-white sm:text-[5.4rem] lg:text-[7rem]">
+              <span className="block">Infraestructura</span>
+              <span className="block italic text-[var(--green)]">sin limites:</span>
+              <span className="block">la vanguardia real</span>
+            </h1>
 
-          <p className="mt-7 max-w-2xl text-lg leading-relaxed text-white/90">
-            Realizamos el cableado y estructurado de la red de su empresa, cumpliendo con los estandares de
-            homologacion de la industria.
-          </p>
+            <p className="mt-6 max-w-2xl text-base leading-8 text-white/70 sm:text-lg">
+              Soluciones de ingenieria de alta precision para operaciones criticas en el ecosistema digital global.
+            </p>
 
-          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-white/75">
-            WORLD IT nace de la necesidad que presentan las empresas para poder estructurar y conectar las
-            telecomunicaciones de manera eficiente.
-          </p>
+            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+              <a
+                href="#contact"
+                className="inline-flex items-center justify-center gap-2 rounded-sm border border-[var(--green)] bg-[var(--green)] px-6 py-3 text-[0.68rem] font-extrabold uppercase tracking-[0.22em] text-slate-950 shadow-[0_0_26px_rgba(74,222,128,0.26)] transition-transform hover:-translate-y-0.5"
+              >
+                Activa tu infraestructura
+                <ArrowRight className="h-4 w-4" />
+              </a>
+              <a
+                href="#projects"
+                className="inline-flex items-center justify-center rounded-sm border border-white/14 bg-white/5 px-6 py-3 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-white/80 transition-colors hover:border-white/24 hover:bg-white/8"
+              >
+                Documentacion tecnica
+              </a>
+            </div>
+          </div>
 
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
-            <a
-              href="https://wa.me/541155990107"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-[linear-gradient(110deg,var(--violet),var(--green))] px-7 py-3 text-sm font-semibold uppercase tracking-[0.15em] text-white shadow-[0_18px_40px_rgba(32,178,77,0.25)] transition-all hover:-translate-y-0.5"
-            >
-              Realicenos su consulta
-              <ArrowRight className="h-4 w-4" />
-            </a>
-            <a
-              href="#services"
-              className="inline-flex items-center justify-center rounded-full border border-white/30 bg-black/35 px-7 py-3 text-sm font-semibold uppercase tracking-[0.15em] text-white/90 transition-colors hover:border-[var(--green)] hover:text-[var(--green)]"
-            >
-              Ver servicios
-            </a>
+          <div className="relative hidden min-h-[32rem] lg:block">
+            <div className="network-shell absolute inset-8 overflow-hidden rounded-[1.8rem] border border-white/8 backdrop-blur-sm">
+              <img
+                src="/img/img4.png"
+                alt="Infraestructura World IT"
+                className="absolute inset-0 h-full w-full object-cover opacity-20 saturate-0"
+              />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(21,22,25,0.38),rgba(21,22,25,0.86))]"></div>
+              <div className="absolute inset-0 tech-grid opacity-10"></div>
+
+              <div className="absolute left-8 right-8 top-8">
+                <div className="rounded-sm border border-white/8 bg-black/20 px-4 py-4">
+                  <div className="flex items-center justify-between">
+                    <p className="text-[0.62rem] font-semibold uppercase tracking-[0.22em] text-white/44">
+                      Arquitectura conectada
+                    </p>
+                    <span className="inline-flex h-2.5 w-2.5 rounded-full bg-[var(--green)] shadow-[0_0_14px_rgba(74,222,128,0.72)]"></span>
+                  </div>
+                  <div className="mt-4 h-px w-full bg-white/8"></div>
+                  <div className="mt-4 grid grid-cols-4 gap-3">
+                    <span className="h-1.5 rounded-full bg-[var(--green)]"></span>
+                    <span className="h-1.5 rounded-full bg-white/10"></span>
+                    <span className="h-1.5 rounded-full bg-[var(--violet)]"></span>
+                    <span className="h-1.5 rounded-full bg-[var(--accent-orange)]"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="absolute inset-x-8 bottom-8 space-y-4">
+                {infrastructureLayers.map((item) => (
+                  <div
+                    key={item.label}
+                    className="rounded-sm border border-white/8 bg-[rgba(0,0,0,0.2)] px-4 py-4 backdrop-blur-sm"
+                  >
+                    <div className="flex items-center gap-3">
+                      <span className={`inline-flex h-3 w-3 rounded-full ${item.accentClassName}`}></span>
+                      <span className="text-[0.74rem] font-semibold uppercase tracking-[0.18em] text-white">
+                        {item.label}
+                      </span>
+                    </div>
+                    <div className="mt-3 h-1.5 w-full rounded-full bg-white/8">
+                      <span className={`block h-full rounded-full ${item.barClassName}`}></span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="animate-float-card relative">
-          <div className="rounded-[1.8rem] border border-[var(--border-color)] bg-[var(--surface-2)] p-6 shadow-[var(--shadow-main)] backdrop-blur-2xl sm:p-8">
-            <div className="mb-6 flex items-center justify-between">
-              <div>
-                <p className="text-xs uppercase tracking-[0.2em] text-[var(--text-muted)]">Network overview</p>
-                <h2 className="mt-2 font-heading text-2xl text-[var(--text-primary)]">Panel de conectividad</h2>
-              </div>
-              <div className="rounded-xl border border-[var(--green)]/45 bg-[var(--green)]/12 p-3">
-                <Wifi className="h-6 w-6 text-[var(--green)]" />
-              </div>
-            </div>
-
-            <div className="space-y-3">
-              {serviceBullets.map((bullet) => (
-                <div key={bullet} className="rounded-xl border border-[var(--border-color)] bg-[var(--surface-3)] p-4">
-                  <div className="flex items-start gap-3">
-                    <span className="mt-1 h-2 w-2 rounded-full bg-[var(--green)] shadow-[0_0_10px_rgba(32,178,77,0.8)]"></span>
-                    <p className="text-sm text-[var(--text-secondary)]">{bullet}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-6 grid grid-cols-2 gap-3 text-xs uppercase tracking-[0.13em] text-[var(--text-muted)]">
-              <div className="rounded-xl border border-[var(--border-color)] bg-[var(--surface-3)] p-3">
-                <ShieldCheck className="mb-2 h-4 w-4 text-[var(--green)]" />
-                Seguridad de red
-              </div>
-              <div className="rounded-xl border border-[var(--border-color)] bg-[var(--surface-3)] p-3">
-                <Cable className="mb-2 h-4 w-4 text-[var(--violet)]" />
-                Fibra y cobre
-              </div>
-            </div>
-          </div>
+        <div className="mt-16 grid gap-3 border-t border-white/8 pt-5 text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-white/42 sm:grid-cols-3">
+          {metaItems.map((item) => (
+            <div key={item}>{item}</div>
+          ))}
         </div>
       </div>
     </section>
