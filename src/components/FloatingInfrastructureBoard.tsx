@@ -69,9 +69,7 @@ export default function FloatingInfrastructureBoard() {
       <div className="absolute inset-0 tech-grid opacity-10"></div>
 
       <div className="pointer-events-none absolute inset-x-8 top-8 flex items-center justify-between rounded-sm border border-white/8 bg-black/18 px-4 py-4">
-        <p className="font-mono text-[0.66rem] font-medium lowercase tracking-[0.08em] text-white/50">
-          architecture.connected
-        </p>
+        <p className="text-[0.66rem] font-semibold uppercase tracking-[0.14em] text-white/56">arquitectura conectada</p>
         <div className="flex items-center gap-2">
           {cards.map((card, index) => (
             <span
@@ -92,10 +90,7 @@ export default function FloatingInfrastructureBoard() {
         >
           <div className="flex items-start justify-between gap-4">
             <div>
-              <p className="font-mono text-[0.58rem] font-medium lowercase tracking-[0.06em] text-white/34">
-                slide {String(activeIndex + 1).padStart(2, '0')}
-              </p>
-              <h3 className="mt-2 font-heading text-[2.1rem] font-bold uppercase leading-[0.9] tracking-[0.04em] text-white">
+              <h3 className="font-heading text-[2.1rem] font-bold uppercase leading-[0.9] tracking-[0.04em] text-white">
                 {activeCard.title}
               </h3>
             </div>
