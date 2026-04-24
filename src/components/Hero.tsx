@@ -1,32 +1,10 @@
 import { ArrowRight } from 'lucide-react';
+import FloatingInfrastructureBoard from './FloatingInfrastructureBoard';
 
 const metaItems = [
   'Latencia global: 1.4ms',
   '40Gbps core',
   'Protocolo operacional',
-];
-
-const infrastructureLayers = [
-  {
-    label: 'Fibra optica',
-    accentClassName: 'bg-[var(--green)]',
-    barClassName: 'bg-[var(--green)] w-4/5',
-  },
-  {
-    label: 'Cableado estructurado',
-    accentClassName: 'bg-[var(--violet)]',
-    barClassName: 'bg-[var(--violet)] w-3/5',
-  },
-  {
-    label: 'WiFi corporativo',
-    accentClassName: 'bg-[var(--accent-orange)]',
-    barClassName: 'bg-[var(--accent-orange)] w-2/3',
-  },
-  {
-    label: 'Racks e infraestructura',
-    accentClassName: 'bg-[var(--green)]',
-    barClassName: 'bg-white/70 w-5/6',
-  },
 ];
 
 export default function Hero() {
@@ -76,52 +54,7 @@ export default function Hero() {
           </div>
 
           <div className="relative hidden min-h-[32rem] lg:block">
-            <div className="network-shell absolute inset-8 overflow-hidden rounded-[1.8rem] border border-white/8">
-              <img
-                src="/img/img4.png"
-                alt="Infraestructura World IT"
-                className="absolute inset-0 h-full w-full object-cover opacity-20 saturate-0"
-              />
-              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(21,22,25,0.38),rgba(21,22,25,0.86))]"></div>
-              <div className="absolute inset-0 tech-grid opacity-10"></div>
-
-              <div className="absolute left-8 right-8 top-8">
-                <div className="rounded-sm border border-white/8 bg-black/20 px-4 py-4">
-                  <div className="flex items-center justify-between">
-                    <p className="text-[0.62rem] font-semibold uppercase tracking-[0.22em] text-white/44">
-                      Arquitectura conectada
-                    </p>
-                    <span className="inline-flex h-2.5 w-2.5 rounded-full bg-[var(--green)] shadow-[0_0_14px_rgba(74,222,128,0.72)]"></span>
-                  </div>
-                  <div className="mt-4 h-px w-full bg-white/8"></div>
-                  <div className="mt-4 grid grid-cols-4 gap-3">
-                    <span className="h-1.5 rounded-full bg-[var(--green)]"></span>
-                    <span className="h-1.5 rounded-full bg-white/10"></span>
-                    <span className="h-1.5 rounded-full bg-[var(--violet)]"></span>
-                    <span className="h-1.5 rounded-full bg-[var(--accent-orange)]"></span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="absolute inset-x-8 bottom-8 space-y-4">
-                {infrastructureLayers.map((item) => (
-                  <div
-                    key={item.label}
-                    className="rounded-sm border border-white/8 bg-[rgba(0,0,0,0.2)] px-4 py-4"
-                  >
-                    <div className="flex items-center gap-3">
-                      <span className={`inline-flex h-3 w-3 rounded-full ${item.accentClassName}`}></span>
-                      <span className="text-[0.74rem] font-semibold uppercase tracking-[0.18em] text-white">
-                        {item.label}
-                      </span>
-                    </div>
-                    <div className="mt-3 h-1.5 w-full rounded-full bg-white/8">
-                      <span className={`block h-full rounded-full ${item.barClassName}`}></span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+            <FloatingInfrastructureBoard />
           </div>
         </div>
 

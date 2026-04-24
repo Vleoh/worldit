@@ -160,30 +160,28 @@
   background: linear-gradient(180deg, rgba(27, 29, 33, 0.94) 0%, rgba(22, 23, 27, 0.92) 100%);
 }
 
-.network-ring {
-  animation: rotateSlow 18s linear infinite;
+.floating-card {
+  transform-style: preserve-3d;
+  transition:
+    transform 260ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 220ms ease,
+    box-shadow 220ms ease;
 }
 
-.network-ring.reverse {
-  animation-direction: reverse;
-  animation-duration: 24s;
+.floating-card:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.34);
 }
 
-.network-core {
-  animation: corePulse 3.4s ease-in-out infinite;
+.slot-track {
+  will-change: transform;
+  animation-name: slotColumn;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
 
-.network-stream {
-  stroke-dasharray: 10 16;
-  animation: pathFlow 7s linear infinite;
-}
-
-.network-stream.slow {
-  animation-duration: 9.5s;
-}
-
-.network-stream.reverse {
-  animation-direction: reverse;
+.slot-paused {
+  animation-play-state: paused;
 }
 
 @keyframes sweep {
@@ -226,26 +224,13 @@
   }
 }
 
-@keyframes corePulse {
-  0%,
-  100% {
-    transform: translate(-50%, -50%) scale(1);
-    box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.2), 0 0 50px rgba(74, 222, 128, 0.18);
-  }
-
-  50% {
-    transform: translate(-50%, -50%) scale(1.05);
-    box-shadow: 0 0 0 18px rgba(74, 222, 128, 0), 0 0 65px rgba(74, 222, 128, 0.24);
-  }
-}
-
-@keyframes pathFlow {
+@keyframes slotColumn {
   from {
-    stroke-dashoffset: 0;
+    transform: translateY(-50%);
   }
 
   to {
-    stroke-dashoffset: -90;
+    transform: translateY(0%);
   }
 }
 
