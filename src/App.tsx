@@ -6,6 +6,7 @@ import Services from './components/Services';
 import ServiceShowcase from './components/ServiceShowcase';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
+import WhatsAppFloatingButton from './components/WhatsAppFloatingButton';
 
 function App() {
   useEffect(() => {
@@ -23,6 +24,7 @@ function App() {
         <Testimonials />
         <Contact />
       </main>
+      <WhatsAppFloatingButton />
     </div>
   );
 }
