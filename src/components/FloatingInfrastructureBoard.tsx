@@ -1,15 +1,13 @@
-import { useEffect, useRef, useState } from 'react';
+import { Cable, Server, Waypoints, Wifi } from 'lucide-react';
 
 type InfrastructureCard = {
   title: string;
   color: string;
+  module: string;
+  icon: JSX.Element;
   width: string;
   top: string;
   left: string;
-  shiftX: number;
-  shiftY: number;
-  rotateX: number;
-  rotateY: number;
   duration: number;
   loadWidth: string;
   rows: string[];
@@ -19,123 +17,56 @@ const cards: InfrastructureCard[] = [
   {
     title: 'Fibra optica',
     color: 'var(--green)',
+    module: 'service.node/01',
+    icon: <Waypoints className="h-4 w-4" />,
     width: '44%',
     top: '10%',
     left: '7%',
-    shiftX: -16,
-    shiftY: -10,
-    rotateX: 2.8,
-    rotateY: 5.6,
     duration: 10.5,
     loadWidth: '82%',
-    rows: ['Backbone OM4 / OS2', 'Troncales metropolitanas', 'Distribucion de campus', 'Enlaces de baja latencia'],
+    rows: ['backbone om4 / os2', 'troncales metropolitanas', 'distribucion de campus', 'enlaces de baja latencia'],
   },
   {
     title: 'Cableado estructurado',
     color: 'var(--violet)',
+    module: 'service.node/02',
+    icon: <Cable className="h-4 w-4" />,
     width: '40%',
     top: '11%',
     left: '52%',
-    shiftX: 14,
-    shiftY: -12,
-    rotateX: 2.2,
-    rotateY: -5.2,
     duration: 8.9,
     loadWidth: '74%',
-    rows: ['Cat6A y Cat7', 'Ordenamiento de patcheras', 'Certificacion de bocas', 'Topologias escalables'],
+    rows: ['cat6a y cat7', 'ordenamiento de patcheras', 'certificacion de bocas', 'topologias escalables'],
   },
   {
     title: 'WiFi corporativo',
     color: 'var(--accent-orange)',
+    module: 'service.node/03',
+    icon: <Wifi className="h-4 w-4" />,
     width: '42%',
     top: '53%',
     left: '10%',
-    shiftX: -12,
-    shiftY: 13,
-    rotateX: -2.6,
-    rotateY: 4.4,
     duration: 9.7,
     loadWidth: '68%',
-    rows: ['Indoor y outdoor', 'Analisis de cobertura', 'Roaming estable', 'Capacidad concurrente'],
+    rows: ['indoor y outdoor', 'analisis de cobertura', 'roaming estable', 'capacidad concurrente'],
   },
   {
     title: 'Racks e infraestructura',
     color: 'var(--green)',
+    module: 'service.node/04',
+    icon: <Server className="h-4 w-4" />,
     width: '41%',
     top: '57%',
     left: '54%',
-    shiftX: 16,
-    shiftY: 11,
-    rotateX: -2.4,
-    rotateY: -4.8,
     duration: 11.3,
     loadWidth: '79%',
-    rows: ['Racks murales y de piso', 'Canalizacion y energia', 'Flujo de aire', 'Estandares de sitio'],
+    rows: ['racks murales y de piso', 'canalizacion y energia', 'flujo de aire', 'estandares de sitio'],
   },
 ];
 
 export default function FloatingInfrastructureBoard() {
-  const boardRef = useRef<HTMLDivElement | null>(null);
-  const frameRef = useRef<number | null>(null);
-  const currentRef = useRef({ x: 0, y: 0 });
-  const targetRef = useRef({ x: 0, y: 0 });
-  const [motion, setMotion] = useState({ x: 0, y: 0 });
-  const [isHovered, setIsHovered] = useState(false);
-
-  useEffect(() => {
-    const tick = () => {
-      currentRef.current.x += (targetRef.current.x - currentRef.current.x) * 0.08;
-      currentRef.current.y += (targetRef.current.y - currentRef.current.y) * 0.08;
-
-      setMotion({
-        x: currentRef.current.x,
-        y: currentRef.current.y,
-      });
-
-      frameRef.current = window.requestAnimationFrame(tick);
-    };
-
-    frameRef.current = window.requestAnimationFrame(tick);
-
-    return () => {
-      if (frameRef.current) {
-        window.cancelAnimationFrame(frameRef.current);
-      }
-    };
-  }, []);
-
-  const handlePointerMove = (event: React.MouseEvent<HTMLDivElement>) => {
-    const rect = boardRef.current?.getBoundingClientRect();
-    if (!rect) {
-      return;
-    }
-
-    const x = (event.clientX - rect.left) / rect.width;
-    const y = (event.clientY - rect.top) / rect.height;
-
-    targetRef.current = {
-      x: (x - 0.5) * 2,
-      y: (y - 0.5) * 2,
-    };
-  };
-
-  const handlePointerEnter = () => {
-    setIsHovered(true);
-  };
-
-  const handlePointerLeave = () => {
-    setIsHovered(false);
-    targetRef.current = { x: 0, y: 0 };
-  };
-
   return (
-    <div
-      ref={boardRef}
-      onMouseMove={handlePointerMove}
-      onMouseEnter={handlePointerEnter}
-      onMouseLeave={handlePointerLeave}
-      className="network-shell absolute inset-8 overflow-hidden rounded-[1.8rem] border border-white/8"
-    >
+    <div className="network-shell absolute inset-8 overflow-hidden rounded-[1.8rem] border border-white/8">
       <img
         src="/img/img4.png"
         alt="Infraestructura World IT"
@@ -145,9 +76,10 @@ export default function FloatingInfrastructureBoard() {
       <div className="absolute inset-0 tech-grid opacity-10"></div>
 
       <div className="pointer-events-none absolute inset-x-8 top-8 flex items-center justify-between rounded-sm border border-white/8 bg-black/18 px-4 py-4">
-        <p className="text-[0.62rem] font-semibold uppercase tracking-[0.22em] text-white/50">Arquitectura conectada</p>
+        <p className="font-mono text-[0.66rem] font-medium lowercase tracking-[0.08em] text-white/50">
+          architecture.connected
+        </p>
         <div className="flex items-center gap-2">
-          <span className="h-2.5 w-2.5 rounded-full bg-[var(--green)]"></span>
           <span className="h-1.5 w-10 rounded-full bg-white/10"></span>
           <span className="h-1.5 w-8 rounded-full bg-[var(--violet)]/80"></span>
           <span className="h-1.5 w-6 rounded-full bg-[var(--accent-orange)]/80"></span>
@@ -155,10 +87,6 @@ export default function FloatingInfrastructureBoard() {
       </div>
 
       {cards.map((card) => {
-        const transform = `translate3d(${motion.x * card.shiftX}px, ${motion.y * card.shiftY}px, 0) rotateX(${
-          motion.y * card.rotateX
-        }deg) rotateY(${motion.x * card.rotateY}deg)`;
-
         return (
           <article
             key={card.title}
@@ -166,27 +94,36 @@ export default function FloatingInfrastructureBoard() {
               top: card.top,
               left: card.left,
               width: card.width,
-              transform,
             }}
             className="floating-card absolute rounded-[1.15rem] border border-white/10 bg-[rgba(12,13,16,0.82)] px-5 py-5 shadow-[0_24px_60px_rgba(0,0,0,0.24)]"
           >
-            <div className="flex items-center gap-3">
-              <span className="h-3 w-3 rounded-full" style={{ backgroundColor: card.color }}></span>
-              <h3 className="text-[0.82rem] font-semibold uppercase tracking-[0.18em] text-white">{card.title}</h3>
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <p className="font-mono text-[0.58rem] font-medium lowercase tracking-[0.06em] text-white/34">
+                  {card.module}
+                </p>
+                <h3 className="mt-2 font-mono text-[0.9rem] font-bold uppercase tracking-[0.12em] text-white">
+                  {card.title}
+                </h3>
+              </div>
+
+              <span
+                className="inline-flex h-9 w-9 items-center justify-center rounded-[0.8rem] border border-white/8 bg-black/30"
+                style={{ color: card.color }}
+              >
+                {card.icon}
+              </span>
             </div>
 
             <div className="mt-4 h-28 overflow-hidden rounded-[0.9rem] border border-white/8 bg-black/20">
-              <div
-                className={`slot-track ${isHovered ? 'slot-paused' : ''}`}
-                style={{ animationDuration: `${card.duration}s` }}
-              >
+              <div className="slot-track" style={{ animationDuration: `${card.duration}s` }}>
                 {[...card.rows, ...card.rows].map((row, index) => (
                   <div
                     key={`${card.title}-${row}-${index}`}
-                    className="flex h-10 items-center gap-3 border-b border-white/6 px-4 text-[0.72rem] font-medium uppercase tracking-[0.12em] text-white/72 last:border-b-0"
+                    className="flex h-10 items-center justify-between gap-3 border-b border-white/6 px-4 font-mono text-[0.7rem] font-medium lowercase tracking-[0.03em] text-white/68 last:border-b-0"
                   >
-                    <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: card.color }}></span>
                     <span>{row}</span>
+                    <span className="text-white/24">{String((index % card.rows.length) + 1).padStart(2, '0')}</span>
                   </div>
                 ))}
               </div>
