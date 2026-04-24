@@ -12,10 +12,10 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[rgba(2,6,23,0.82)] backdrop-blur-xl">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#151619]">
       <nav className="section-shell flex items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         <a href="#top" className="shrink-0">
-          <img src="/img/witblanco.png" alt="World IT" className="h-12 w-auto md:h-14" />
+          <img src="/img/logonew.png" alt="World IT" className="h-12 w-auto md:h-14" />
         </a>
 
         <div className="hidden items-center gap-8 md:flex">
@@ -50,7 +50,7 @@ export default function Navbar() {
       </nav>
 
       <div
-        className={`overflow-hidden border-t border-white/10 bg-[rgba(2,6,23,0.96)] transition-all duration-300 md:hidden ${
+        className={`overflow-hidden border-t border-white/10 bg-[#151619] transition-all duration-300 md:hidden ${
           isOpen ? 'max-h-80' : 'max-h-0'
         }`}
       >

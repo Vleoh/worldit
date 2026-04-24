@@ -76,7 +76,7 @@ export default function Hero() {
           </div>
 
           <div className="relative hidden min-h-[32rem] lg:block">
-            <div className="network-shell absolute inset-8 overflow-hidden rounded-[1.8rem] border border-white/8 backdrop-blur-sm">
+            <div className="network-shell absolute inset-8 overflow-hidden rounded-[1.8rem] border border-white/8">
               <img
                 src="/img/img4.png"
                 alt="Infraestructura World IT"
@@ -107,7 +107,7 @@ export default function Hero() {
                 {infrastructureLayers.map((item) => (
                   <div
                     key={item.label}
-                    className="rounded-sm border border-white/8 bg-[rgba(0,0,0,0.2)] px-4 py-4 backdrop-blur-sm"
+                    className="rounded-sm border border-white/8 bg-[rgba(0,0,0,0.2)] px-4 py-4"
                   >
                     <div className="flex items-center gap-3">
                       <span className={`inline-flex h-3 w-3 rounded-full ${item.accentClassName}`}></span>

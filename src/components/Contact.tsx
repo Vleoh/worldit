@@ -226,7 +226,7 @@ export default function Contact() {
         <footer className="border-t border-white/8 py-10">
           <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr_1fr_1fr]">
             <div>
-              <img src="/img/witblanco.png" alt="World IT" className="h-12 w-auto" />
+              <img src="/img/logonew.png" alt="World IT" className="h-12 w-auto" />
               <p className="mt-5 max-w-sm text-sm leading-7 text-white/56">
                 Infraestructura, seguridad y continuidad para empresas que necesitan una base tecnica confiable.
               </p>
