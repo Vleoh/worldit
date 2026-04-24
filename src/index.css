@@ -164,6 +164,10 @@
   transform-style: preserve-3d;
 }
 
+.card-fade-in {
+  animation: cardFadeIn 420ms ease;
+}
+
 .slot-track {
   will-change: transform;
   animation-name: slotColumn;
@@ -218,6 +222,18 @@
 
   to {
     transform: translateY(0%);
+  }
+}
+
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
 }
 
