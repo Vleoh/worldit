@@ -1,13 +1,10 @@
 import { Cable, Server, Waypoints, Wifi } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 type InfrastructureCard = {
   title: string;
   color: string;
-  module: string;
   icon: JSX.Element;
-  width: string;
-  top: string;
-  left: string;
   duration: number;
   loadWidth: string;
   rows: string[];
@@ -15,49 +12,33 @@ type InfrastructureCard = {
 
 const cards: InfrastructureCard[] = [
   {
-    title: 'Fibra optica',
+    title: 'FIBRA OPTICA',
     color: 'var(--green)',
-    module: 'service.node/01',
     icon: <Waypoints className="h-4 w-4" />,
-    width: '44%',
-    top: '10%',
-    left: '7%',
     duration: 10.5,
     loadWidth: '82%',
     rows: ['backbone om4 / os2', 'troncales metropolitanas', 'distribucion de campus', 'enlaces de baja latencia'],
   },
   {
-    title: 'Cableado estructurado',
+    title: 'CABLEADO ESTRUCTURADO',
     color: 'var(--violet)',
-    module: 'service.node/02',
     icon: <Cable className="h-4 w-4" />,
-    width: '40%',
-    top: '11%',
-    left: '52%',
     duration: 8.9,
     loadWidth: '74%',
     rows: ['cat6a y cat7', 'ordenamiento de patcheras', 'certificacion de bocas', 'topologias escalables'],
   },
   {
-    title: 'WiFi corporativo',
+    title: 'WIFI CORPORATIVO',
     color: 'var(--accent-orange)',
-    module: 'service.node/03',
     icon: <Wifi className="h-4 w-4" />,
-    width: '42%',
-    top: '53%',
-    left: '10%',
     duration: 9.7,
     loadWidth: '68%',
     rows: ['indoor y outdoor', 'analisis de cobertura', 'roaming estable', 'capacidad concurrente'],
   },
   {
-    title: 'Racks e infraestructura',
+    title: 'RACKS E INFRAESTRUCTURA',
     color: 'var(--green)',
-    module: 'service.node/04',
     icon: <Server className="h-4 w-4" />,
-    width: '41%',
-    top: '57%',
-    left: '54%',
     duration: 11.3,
     loadWidth: '79%',
     rows: ['racks murales y de piso', 'canalizacion y energia', 'flujo de aire', 'estandares de sitio'],
@@ -65,6 +46,16 @@ const cards: InfrastructureCard[] = [
 ];
 
 export default function FloatingInfrastructureBoard() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setActiveIndex((current) => (current + 1) % cards.length);
+    }, 4200);
+
+    return () => window.clearInterval(timer);
+  }, []);
+
   return (
     <div className="network-shell absolute inset-8 overflow-hidden rounded-[1.8rem] border border-white/8">
       <img
@@ -80,67 +71,77 @@ export default function FloatingInfrastructureBoard() {
           architecture.connected
         </p>
         <div className="flex items-center gap-2">
-          <span className="h-1.5 w-10 rounded-full bg-white/10"></span>
-          <span className="h-1.5 w-8 rounded-full bg-[var(--violet)]/80"></span>
-          <span className="h-1.5 w-6 rounded-full bg-[var(--accent-orange)]/80"></span>
+          {cards.map((card, index) => (
+            <span
+              key={card.title}
+              className={`h-1.5 rounded-full transition-all duration-500 ${
+                index === activeIndex ? 'w-10' : 'w-6 bg-white/10'
+              }`}
+              style={index === activeIndex ? { backgroundColor: card.color } : undefined}
+            ></span>
+          ))}
         </div>
       </div>
 
-      {cards.map((card) => {
-        return (
-          <article
-            key={card.title}
-            style={{
-              top: card.top,
-              left: card.left,
-              width: card.width,
-            }}
-            className="floating-card absolute rounded-[1.15rem] border border-white/10 bg-[rgba(12,13,16,0.82)] px-5 py-5 shadow-[0_24px_60px_rgba(0,0,0,0.24)]"
-          >
-            <div className="flex items-start justify-between gap-4">
-              <div>
-                <p className="font-mono text-[0.58rem] font-medium lowercase tracking-[0.06em] text-white/34">
-                  {card.module}
-                </p>
-                <h3 className="mt-2 font-mono text-[0.9rem] font-bold uppercase tracking-[0.12em] text-white">
-                  {card.title}
-                </h3>
-              </div>
-
-              <span
-                className="inline-flex h-9 w-9 items-center justify-center rounded-[0.8rem] border border-white/8 bg-black/30"
-                style={{ color: card.color }}
-              >
-                {card.icon}
-              </span>
-            </div>
-
-            <div className="mt-4 h-28 overflow-hidden rounded-[0.9rem] border border-white/8 bg-black/20">
-              <div className="slot-track" style={{ animationDuration: `${card.duration}s` }}>
-                {[...card.rows, ...card.rows].map((row, index) => (
-                  <div
-                    key={`${card.title}-${row}-${index}`}
-                    className="flex h-10 items-center justify-between gap-3 border-b border-white/6 px-4 font-mono text-[0.7rem] font-medium lowercase tracking-[0.03em] text-white/68 last:border-b-0"
-                  >
-                    <span>{row}</span>
-                    <span className="text-white/24">{String((index % card.rows.length) + 1).padStart(2, '0')}</span>
+      <div className="absolute inset-x-10 bottom-10 top-28 overflow-hidden rounded-[1.45rem]">
+        <div
+          className="flex h-full transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
+          style={{ transform: `translateX(-${activeIndex * 100}%)` }}
+        >
+          {cards.map((card, index) => (
+            <div key={card.title} className="h-full min-w-full px-2">
+              <article className="floating-card flex h-full flex-col rounded-[1.35rem] border border-white/10 bg-[rgba(12,13,16,0.84)] px-6 py-6 shadow-[0_24px_60px_rgba(0,0,0,0.24)]">
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <p className="font-mono text-[0.58rem] font-medium lowercase tracking-[0.06em] text-white/34">
+                      slide {String(index + 1).padStart(2, '0')}
+                    </p>
+                    <h3 className="mt-2 font-heading text-[2.1rem] font-bold uppercase leading-[0.9] tracking-[0.04em] text-white">
+                      {card.title}
+                    </h3>
                   </div>
-                ))}
-              </div>
-            </div>
 
-            <div className="mt-4 h-1.5 w-full rounded-full bg-white/8">
-              <span
-                className="block h-full rounded-full"
-                style={{
-                  width: card.loadWidth,
-                  backgroundColor: card.color,
-                }}
-              ></span>
+                  <span
+                    className="inline-flex h-11 w-11 items-center justify-center rounded-[0.95rem] border border-white/8 bg-black/30"
+                    style={{ color: card.color }}
+                  >
+                    {card.icon}
+                  </span>
+                </div>
+
+                <div className="mt-6 flex-1 overflow-hidden rounded-[1rem] border border-white/8 bg-black/20">
+                  <div className="slot-track" style={{ animationDuration: `${card.duration}s` }}>
+                    {[...card.rows, ...card.rows].map((row, rowIndex) => (
+                      <div
+                        key={`${card.title}-${row}-${rowIndex}`}
+                        className="flex h-12 items-center justify-between gap-3 border-b border-white/6 px-5 font-mono text-[0.72rem] font-medium lowercase tracking-[0.03em] text-white/70 last:border-b-0"
+                      >
+                        <span>{row}</span>
+                        <span className="text-white/24">{String((rowIndex % card.rows.length) + 1).padStart(2, '0')}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="mt-5 flex items-center gap-4">
+                  <div className="h-1.5 flex-1 rounded-full bg-white/8">
+                    <span
+                      className="block h-full rounded-full"
+                      style={{
+                        width: card.loadWidth,
+                        backgroundColor: card.color,
+                      }}
+                    ></span>
+                  </div>
+                  <span className="font-mono text-[0.58rem] font-medium lowercase tracking-[0.04em] text-white/38">
+                    auto
+                  </span>
+                </div>
+              </article>
             </div>
-          </article>
-        );
-      })}
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
