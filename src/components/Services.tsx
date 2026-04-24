@@ -1,8 +1,8 @@
 const serviceCards = [
   {
-    title: 'Fibra optica de alta densidad',
+    title: 'Fibra óptica de alta densidad',
     description:
-      'Redes de backbone disenadas para la maxima transferencia de paquetes sin perdidas, orientadas a operaciones criticas.',
+      'Redes de backbone diseñadas para la máxima transferencia de paquetes sin pérdidas, orientadas a operaciones críticas.',
     image: '/img/img2.png',
     label: 'Infraestructura core',
     accent: 'border-[var(--green)]',
@@ -10,15 +10,15 @@ const serviceCards = [
   },
   {
     title: 'CCTV IA-Powered',
-    description: 'Vigilancia inteligente con analisis predictivo y reconocimiento de patrones en tiempo real.',
+    description: 'Vigilancia inteligente con análisis predictivo y reconocimiento de patrones en tiempo real.',
     label: 'Seguridad automatizada',
     accent: 'border-[var(--violet)]',
     linkColor: 'text-[var(--violet)]',
   },
   {
     title: 'Cableado estructurado',
-    description: 'Arquitectura Cat6A y Cat7 organizada con protocolos de flujo de aire y gestion termica.',
-    label: 'Capa fisica',
+    description: 'Arquitectura Cat6A y Cat7 organizada con protocolos de flujo de aire y gestión térmica.',
+    label: 'Capa física',
     accent: 'border-[var(--accent-orange)]',
     linkColor: 'text-[var(--accent-orange)]',
   },
@@ -30,7 +30,7 @@ export default function Services() {
       <div className="section-shell">
         <div className="grid gap-4 lg:grid-cols-[1.35fr_0.9fr]">
           <article className="tech-panel relative overflow-hidden rounded-sm lg:row-span-2">
-            <img src="/img/img3.png" alt="Fibra optica de alta densidad" className="h-full w-full object-cover opacity-36" />
+            <img src="/img/img3.png" alt="Fibra óptica de alta densidad" className="h-full w-full object-cover opacity-36" />
             <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,23,0.2),rgba(2,6,23,0.82))]"></div>
             <div className="absolute bottom-0 left-0 right-0 border-l-2 border-[var(--green)] p-7 sm:p-9">
               <p className="text-[0.62rem] font-semibold uppercase tracking-[0.22em] text-[var(--green)]">
@@ -44,7 +44,7 @@ export default function Services() {
                 href="#contact"
                 className="mt-7 inline-flex rounded-sm border border-white/12 bg-white/6 px-4 py-3 text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-white/82"
               >
-                Ver especificacion
+                Ver especificación
               </a>
             </div>
           </article>
@@ -64,17 +64,17 @@ export default function Services() {
 
           <article className="tech-panel grid gap-4 rounded-sm border-l-2 border-[var(--green)] px-6 py-7 md:grid-cols-[1fr_auto_auto] md:items-center">
             <div>
-              <h3 className="font-heading text-4xl uppercase leading-[0.92] text-white">Gestion critica de IDFs &amp; MDFs</h3>
+              <h3 className="font-heading text-4xl uppercase leading-[0.92] text-white">Gestión crítica de IDFs &amp; MDFs</h3>
               <p className="mt-3 max-w-2xl text-sm leading-7 text-white/62">
-                Estandarizacion y remediacion de centros de datos. Corregimos el caos de cables en una infraestructura
-                de precision logica y fisica.
+                Estandarización y remediación de centros de datos. Corregimos el caos de cables en una infraestructura
+                de precisión lógica y física.
               </p>
             </div>
             <span className="rounded-sm border border-white/10 bg-white/5 px-4 py-3 text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-white/76">
               Feeding total
             </span>
             <span className="rounded-sm border border-white/10 bg-white/5 px-4 py-3 text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-white/76">
-              Optimizacion
+              Optimización
             </span>
           </article>
         </div>

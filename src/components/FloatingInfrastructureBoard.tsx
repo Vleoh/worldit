@@ -12,12 +12,12 @@ type InfrastructureCard = {
 
 const cards: InfrastructureCard[] = [
   {
-    title: 'FIBRA OPTICA',
+    title: 'FIBRA ÓPTICA',
     color: 'var(--green)',
     icon: <Waypoints className="h-4 w-4" />,
     duration: 10.5,
     loadWidth: '82%',
-    rows: ['backbone om4 / os2', 'troncales metropolitanas', 'distribucion de campus', 'enlaces de baja latencia'],
+    rows: ['backbone om4 / os2', 'troncales metropolitanas', 'distribución de campus', 'enlaces de baja latencia'],
   },
   {
     title: 'CABLEADO ESTRUCTURADO',
@@ -25,7 +25,7 @@ const cards: InfrastructureCard[] = [
     icon: <Cable className="h-4 w-4" />,
     duration: 8.9,
     loadWidth: '74%',
-    rows: ['cat6a y cat7', 'ordenamiento de patcheras', 'certificacion de bocas', 'topologias escalables'],
+    rows: ['cat6a y cat7', 'ordenamiento de patcheras', 'certificación de bocas', 'topologías escalables'],
   },
   {
     title: 'WIFI CORPORATIVO',
@@ -33,7 +33,7 @@ const cards: InfrastructureCard[] = [
     icon: <Wifi className="h-4 w-4" />,
     duration: 9.7,
     loadWidth: '68%',
-    rows: ['indoor y outdoor', 'analisis de cobertura', 'roaming estable', 'capacidad concurrente'],
+    rows: ['indoor y outdoor', 'análisis de cobertura', 'roaming estable', 'capacidad concurrente'],
   },
   {
     title: 'RACKS E INFRAESTRUCTURA',
@@ -41,7 +41,7 @@ const cards: InfrastructureCard[] = [
     icon: <Server className="h-4 w-4" />,
     duration: 11.3,
     loadWidth: '79%',
-    rows: ['racks murales y de piso', 'canalizacion y energia', 'flujo de aire', 'estandares de sitio'],
+    rows: ['racks murales y de piso', 'canalización y energía', 'flujo de aire', 'estándares de sitio'],
   },
 ];
 

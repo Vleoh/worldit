@@ -10,7 +10,7 @@ const metrics = [
   {
     label: 'Throughput',
     value: '40Gbps',
-    detail: 'Backbone preparado para trafico corporativo critico.',
+    detail: 'Backbone preparado para tráfico corporativo crítico.',
     color: 'bg-[var(--violet)]',
   },
   {
@@ -33,7 +33,7 @@ export default function Clients() {
       <div className="section-shell">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="eyebrow">Metricas de rendimiento global</p>
+            <p className="eyebrow">Métricas de rendimiento global</p>
             <h2 className="mt-5 max-w-xl font-heading text-4xl uppercase leading-[0.92] text-white sm:text-5xl">
               Monitoreo en tiempo real de la red troncal WORLD IT
             </h2>

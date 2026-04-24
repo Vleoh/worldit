@@ -2,7 +2,7 @@ const projects = [
   {
     title: 'Red troncal de baja latencia para nexus financiero',
     description:
-      'Implementacion de 2.5km de fibra OM4 y reestructuracion de data center core con cero ventanas de alta velocidad.',
+      'Implementación de 2.5km de fibra OM4 y reestructuración de data center core con cero ventanas de alta velocidad.',
     image: '/img/img4.png',
     tags: ['Backbone IP', 'Baja latencia'],
     color: 'text-[var(--green)]',
@@ -10,9 +10,9 @@ const projects = [
   {
     title: 'Ecosistema de seguridad IA para global port',
     description:
-      'Red de 400 camaras 4K con procesamiento de borde y almacenamiento redundante de 2PB para control logistico total.',
+      'Red de 400 cámaras 4K con procesamiento de borde y almacenamiento redundante de 2PB para control logístico total.',
     image: '/img/img1.png',
-    tags: ['Logistica core', 'Edge surveillance'],
+    tags: ['Logística core', 'Edge surveillance'],
     color: 'text-[var(--violet)]',
   },
 ];
@@ -22,7 +22,7 @@ export default function Testimonials() {
     <section id="projects" className="border-b border-white/8 bg-[var(--page-bg)] px-4 py-24 sm:px-6 lg:px-8">
       <div className="section-shell">
         <div className="text-center">
-          <p className="eyebrow justify-center">Casos de exito: kinetic projects</p>
+          <p className="eyebrow justify-center">Casos de éxito: kinetic projects</p>
           <h2 className="mt-5 font-heading text-5xl uppercase leading-[0.9] text-white sm:text-6xl">
             Operaciones que ya escalan
           </h2>
@@ -55,7 +55,7 @@ export default function Testimonials() {
                 <h3 className="mt-6 font-heading text-5xl uppercase leading-[0.9] text-white">{project.title}</h3>
                 <p className="mt-5 max-w-xl text-sm leading-7 text-white/62">{project.description}</p>
                 <a href="#contact" className={`mt-6 inline-flex text-[0.66rem] font-bold uppercase tracking-[0.2em] ${project.color}`}>
-                  Tecnologia lista
+                  Tecnología lista
                 </a>
               </div>
             </article>

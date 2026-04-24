@@ -6,11 +6,11 @@ import 'react-toastify/dist/ReactToastify.css';
 const footerColumns = [
   {
     title: 'Core stack',
-    items: ['Redes troncales', 'Backbone IP', 'Protocolos fisicos'],
+    items: ['Redes troncales', 'Backbone IP', 'Protocolos físicos'],
   },
   {
-    title: 'Navegacion',
-    items: ['Infraestructura', 'Metodo', 'Proyectos'],
+    title: 'Navegación',
+    items: ['Infraestructura', 'Método', 'Proyectos'],
   },
   {
     title: 'Contacto',
@@ -21,13 +21,13 @@ const footerColumns = [
 const supportCards = [
   {
     icon: <Headset className="h-5 w-5 text-[var(--green)]" />,
-    title: 'Consultoria 24/7',
-    description: 'Arquitectos de infraestructura disponibles para incidentes, escalado y remediacion.',
+    title: 'Consultoría 24/7',
+    description: 'Arquitectos de infraestructura disponibles para incidentes, escalado y remediación.',
   },
   {
     icon: <ShieldCheck className="h-5 w-5 text-[var(--violet)]" />,
     title: 'Certificaciones',
-    description: 'Criterios de seguridad, homologacion y continuidad operativa en cada despliegue.',
+    description: 'Criterios de seguridad, homologación y continuidad operativa en cada despliegue.',
   },
 ];
 
@@ -64,7 +64,7 @@ export default function Contact() {
       setFormData({ name: '', email: '', company: '', message: '' });
     } catch (error) {
       console.error(error);
-      toast.error('Fallo el envio. Intente nuevamente.');
+      toast.error('Falló el envío. Intente nuevamente.');
     }
   };
 
@@ -77,10 +77,10 @@ export default function Contact() {
           <p className="eyebrow justify-center">Escala operativa</p>
           <h2 className="mt-6 font-heading text-5xl uppercase leading-[0.88] text-white sm:text-6xl lg:text-7xl">
             Listo para escalar
-            <span className="block text-[var(--green)]">tu nucleo digital?</span>
+            <span className="block text-[var(--green)]">tu núcleo digital?</span>
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-white/62">
-            Disenamos el sistema nervioso de tu compania. Sin fallos. Sin limites.
+            Diseñamos el sistema nervioso de tu compañía. Sin fallos. Sin límites.
           </p>
           <a
             href="#formulario"
@@ -95,9 +95,11 @@ export default function Contact() {
           <div className="space-y-6">
             <article className="tech-panel rounded-sm p-7 sm:p-8">
               <p className="eyebrow">Control de enlace</p>
-              <h3 className="mt-5 font-heading text-5xl uppercase leading-[0.9] text-white">Mesa de coordinacion tecnica</h3>
+              <h3 className="mt-5 font-heading text-5xl uppercase leading-[0.9] text-white">
+                Mesa de coordinación técnica
+              </h3>
               <p className="mt-4 text-sm leading-7 text-white/62">
-                Coordinamos relevamientos, despliegues, soporte y redisenos de infraestructura para redes empresariales.
+                Coordinamos relevamientos, despliegues, soporte y rediseños de infraestructura para redes empresariales.
               </p>
 
               <div className="mt-8 space-y-4">
@@ -116,7 +118,7 @@ export default function Contact() {
                     <PhoneCall className="h-4 w-4 text-[var(--violet)]" />
                   </span>
                   <div>
-                    <p className="text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-white/42">Linea directa</p>
+                    <p className="text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-white/42">Línea directa</p>
                     <p className="mt-1 text-sm text-white/82">+54 11 5599 0107</p>
                   </div>
                 </div>
@@ -126,7 +128,7 @@ export default function Contact() {
                     <MapPin className="h-4 w-4 text-[var(--accent-orange)]" />
                   </span>
                   <div>
-                    <p className="text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-white/42">Hub logistico</p>
+                    <p className="text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-white/42">Hub logístico</p>
                     <p className="mt-1 text-sm text-white/82">Buenos Aires, operaciones onsite y remotas.</p>
                   </div>
                 </div>
@@ -150,7 +152,7 @@ export default function Contact() {
             <div className="flex flex-col gap-3 border-b border-white/8 pb-6 sm:flex-row sm:items-end sm:justify-between">
               <div>
                 <p className="eyebrow">Solicitud guiada</p>
-                <h3 className="mt-5 font-heading text-5xl uppercase leading-[0.9] text-white">Activa una propuesta tecnica</h3>
+                <h3 className="mt-5 font-heading text-5xl uppercase leading-[0.9] text-white">Activa una propuesta técnica</h3>
               </div>
               <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-2 text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-white/66">
                 <span className="node-pulse inline-flex h-2 w-2 rounded-full bg-[var(--green)]"></span>
@@ -188,7 +190,7 @@ export default function Contact() {
               </div>
 
               <label className="space-y-2">
-                <span className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-white/42">Compania</span>
+                <span className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-white/42">Compañía</span>
                 <input
                   type="text"
                   name="company"
@@ -228,7 +230,7 @@ export default function Contact() {
             <div>
               <img src="/img/logonew.png" alt="World IT" className="h-12 w-auto" />
               <p className="mt-5 max-w-sm text-sm leading-7 text-white/56">
-                Infraestructura, seguridad y continuidad para empresas que necesitan una base tecnica confiable.
+                Infraestructura, seguridad y continuidad para empresas que necesitan una base técnica confiable.
               </p>
             </div>
 

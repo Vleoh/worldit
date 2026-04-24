@@ -28,12 +28,12 @@ export default function Hero() {
           <div className="max-w-3xl">
             <h1 className="font-heading text-[4rem] uppercase leading-[0.84] text-white sm:text-[5.4rem] lg:text-[7rem]">
               <span className="block">Infraestructura</span>
-              <span className="block italic text-[var(--green)]">sin limites:</span>
+              <span className="block italic text-[var(--green)]">sin límites:</span>
               <span className="block">la vanguardia real</span>
             </h1>
 
             <p className="mt-6 max-w-2xl text-base leading-8 text-white/70 sm:text-lg">
-              Soluciones de ingenieria de alta precision para operaciones criticas en el ecosistema digital global.
+              Soluciones de ingeniería de alta precisión para operaciones críticas en el ecosistema digital global.
             </p>
 
             <div className="mt-10 flex flex-col gap-3 sm:flex-row">
@@ -48,7 +48,7 @@ export default function Hero() {
                 href="#projects"
                 className="inline-flex items-center justify-center rounded-sm border border-white/14 bg-white/5 px-6 py-3 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-white/80 transition-colors hover:border-white/24 hover:bg-white/8"
               >
-                Documentacion tecnica
+                Documentación técnica
               </a>
             </div>
           </div>

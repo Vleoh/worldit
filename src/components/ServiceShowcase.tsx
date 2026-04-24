@@ -2,25 +2,25 @@ const steps = [
   {
     id: '01',
     title: 'Relevamiento',
-    description: 'Auditoria fisica y logica con sensores de red y lectura de trafico basal.',
+    description: 'Auditoría física y lógica con sensores de red y lectura de tráfico basal.',
     color: 'text-[var(--green)] border-[rgba(74,222,128,0.35)]',
   },
   {
     id: '02',
-    title: 'Propuesta tecnica',
-    description: 'Diseno de arquitectura y matriz de puertos con planos de ejecucion controlada.',
+    title: 'Propuesta técnica',
+    description: 'Diseño de arquitectura y matriz de puertos con planos de ejecución controlada.',
     color: 'text-[var(--violet)] border-[rgba(156,76,161,0.35)]',
   },
   {
     id: '03',
     title: 'Despliegue de campo',
-    description: 'Ejecucion sobre sitio con minima interrupcion, testing y evidencia tecnica.',
+    description: 'Ejecución sobre sitio con mínima interrupción, testing y evidencia técnica.',
     color: 'text-[var(--accent-orange)] border-[rgba(249,115,22,0.35)]',
   },
   {
     id: '04',
     title: 'Soporte 24/7',
-    description: 'Monitoreo continuo, remediacion y mantenimiento versionado sobre cada enlace.',
+    description: 'Monitoreo continuo, remediación y mantenimiento versionado sobre cada enlace.',
     color: 'text-[var(--green)] border-[rgba(74,222,128,0.35)]',
   },
 ];
@@ -32,7 +32,7 @@ export default function ServiceShowcase() {
         <div className="text-center">
           <p className="eyebrow justify-center">Protocolo de despliegue</p>
           <h2 className="mt-5 font-heading text-5xl uppercase leading-[0.9] text-white sm:text-6xl">
-            Precision operacional
+            Precisión operacional
           </h2>
         </div>
 
