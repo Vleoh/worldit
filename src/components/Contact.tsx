@@ -14,7 +14,7 @@ const footerColumns = [
   },
   {
     title: 'Contacto',
-    items: ['info@worldit.com.ar', '+54 11 5599 0107', 'Buenos Aires, AR'],
+    items: ['info@worldit.com.ar', '+54 9 11 2274-3626', 'Buenos Aires, AR'],
   },
 ];
 
@@ -119,7 +119,7 @@ export default function Contact() {
                   </span>
                   <div>
                     <p className="text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-white/42">Línea directa</p>
-                    <p className="mt-1 text-sm text-white/82">+54 11 5599 0107</p>
+                    <p className="mt-1 text-sm text-white/82">+54 9 11 2274-3626</p>
                   </div>
                 </div>
 

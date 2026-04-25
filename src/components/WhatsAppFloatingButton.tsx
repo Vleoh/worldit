@@ -1,4 +1,4 @@
-const whatsappHref = 'https://wa.me/541155990107';
+const whatsappHref = 'https://wa.me/5491122743626';
 
 export default function WhatsAppFloatingButton() {
   return (
