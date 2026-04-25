@@ -18,10 +18,10 @@ function App() {
       <Navbar />
       <main className="overflow-hidden">
         <Hero />
-        <Clients />
         <Services />
         <ServiceShowcase />
         <Testimonials />
+        <Clients />
         <Contact />
       </main>
       <WhatsAppFloatingButton />
